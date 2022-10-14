@@ -6,6 +6,7 @@ import { trpc } from "../utils/trpc"
 import DashboardLayout from "../layouts/DashboardLayout"
 import { lightTheme, darkTheme } from "../styles/vars.css"
 import Button from "../ui/Button"
+import Sidebar from "../components/Sidebar"
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -20,20 +21,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           dark: darkTheme,
         }}
       >
-        <DashboardLayout
-          sidebar={
-            <Button
-              background="neutral"
-              onClick={() =>
-                signIn(undefined, {
-                  callbackUrl: "/",
-                })
-              }
-            >
-              Sign In
-            </Button>
-          }
-        >
+        <DashboardLayout sidebar={<Sidebar />}>
           <Component {...pageProps} />
         </DashboardLayout>
       </ThemeProvider>

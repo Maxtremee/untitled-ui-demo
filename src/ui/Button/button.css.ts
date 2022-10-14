@@ -52,6 +52,13 @@ export const button = recipe({
       medium: sprinkles({ padding: "medium" }),
       large: sprinkles({ padding: "large" }),
     },
+    disabled: {
+      true: {
+        pointerEvents: "none",
+        cursor: "none",
+        opacity: 0.9,
+      },
+    },
   },
 
   defaultVariants: {
