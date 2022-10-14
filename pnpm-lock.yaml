@@ -19,7 +19,7 @@ specifiers:
   '@vanilla-extract/sprinkles': 1.5.0
   eslint: 8.22.0
   eslint-config-next: 12.3.1
-  eslint-plugin-prettier: ^4.2.1
+  eslint-plugin-prettier: 4.2.1
   next: 12.3.1
   next-auth: 4.14.0
   next-themes: 0.2.1
