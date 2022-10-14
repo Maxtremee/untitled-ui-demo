@@ -20,6 +20,8 @@ export const sidebar = style({
   alignItems: "center",
   transition: "width 300ms ease",
   width: 82,
+  padding: 10,
+  paddingTop: "2rem",
   ":hover": {
     width: 280,
   },
