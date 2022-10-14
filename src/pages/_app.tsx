@@ -23,7 +23,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <DashboardLayout
           sidebar={
             <Button
-              color="secondary"
+              background="neutral"
               onClick={() =>
                 signIn(undefined, {
                   callbackUrl: "/",
