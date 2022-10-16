@@ -18,6 +18,7 @@ const Home: NextPage = () => {
       <Text size="display-2xl">Untitled UI</Text>
       <Button
         background="primary"
+        disabled={session.status === "loading"}
         onClick={() =>
           signIn(undefined, {
             callbackUrl: "/dashboard",

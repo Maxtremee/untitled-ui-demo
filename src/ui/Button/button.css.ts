@@ -1,26 +1,32 @@
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 import { sprinkles } from "@styles/sprinkles.css"
+import { style } from "@vanilla-extract/css"
+
+export const buttonBase = style([
+  sprinkles({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    color: {
+      darkMode: "white",
+      lightMode: "black",
+    },
+  }),
+  {
+    padding: "10px 18px",
+    border: 0,
+    boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)",
+    borderRadius: 8,
+    outline: "none",
+    transition: "all 300ms",
+    ":hover": {
+      cursor: "pointer",
+    },
+  },
+])
 
 export const button = recipe({
-  base: [
-    sprinkles({
-      color: {
-        darkMode: "white",
-        lightMode: "black",
-      },
-    }),
-    {
-      padding: "10px 18px",
-      border: `1px solid`,
-      boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)",
-      borderRadius: 8,
-      outline: "none",
-      transition: "all 300ms",
-      ":hover": {
-        cursor: "pointer",
-      },
-    },
-  ],
+  base: buttonBase,
   variants: {
     background: {
       neutral: sprinkles({
@@ -58,7 +64,6 @@ export const button = recipe({
       },
     },
   },
-
   defaultVariants: {
     background: "primary",
     size: "medium",

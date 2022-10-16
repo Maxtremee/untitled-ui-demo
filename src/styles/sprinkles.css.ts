@@ -46,6 +46,7 @@ const responsiveProperties = defineProperties({
 })
 
 export const colors = {
+  transparent: "transparent",
   white: "#FFFFFF",
   black: "#000000",
   "gray-25": "#FCFCFD",

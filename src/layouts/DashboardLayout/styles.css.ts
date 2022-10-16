@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { createContainer, style } from "@vanilla-extract/css"
 import { sprinkles } from "@styles/sprinkles.css"
 
 export const layout = style([
@@ -16,6 +16,8 @@ export const layout = style([
   },
 ])
 
+export const sidebarContainer = createContainer()
+
 export const sidebar = style([
   sprinkles({
     color: {
@@ -24,15 +26,18 @@ export const sidebar = style([
     },
   }),
   {
+    containerName: sidebarContainer,
+    containerType: "size",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    transition: "width 300ms ease",
-    width: 82,
-    padding: 10,
+    alignItems: "flex-start",
+    gap: "24px",
+    transition: "width 400ms ease",
+    width: 50,
+    padding: 20,
     paddingTop: "2rem",
     ":hover": {
-      width: 280,
+      width: 360,
     },
   },
 ])
