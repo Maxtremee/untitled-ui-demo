@@ -1,18 +1,15 @@
 import { ReactNode } from "react"
+import Sidebar from "../../components/Sidebar"
 import { layout, main, sidebar as nav } from "./styles.css"
 
 type DashbordLayoutProps = {
-  sidebar: ReactNode
   children: ReactNode
 }
 
-export default function DashboardLayout({
-  sidebar,
-  children,
-}: DashbordLayoutProps) {
+export default function DashboardLayout({ children }: DashbordLayoutProps) {
   return (
     <div className={layout}>
-      <nav className={nav}>{sidebar}</nav>
+      <nav className={nav}>{<Sidebar />}</nav>
       <main className={main}>{children}</main>
     </div>
   )

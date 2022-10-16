@@ -16,20 +16,6 @@ export default function Sidebar() {
   if (session.data?.user) {
     return <Button onClick={() => signOut()}>Sign out</Button>
   }
-
-  if (!session.data?.user) {
-    return (
-      <Button
-        background="neutral"
-        onClick={() =>
-          signIn(undefined, {
-            callbackUrl: "/",
-          })
-        }
-      >
-        Sign In
-      </Button>
-    )
-  }
+  
   return null
 }

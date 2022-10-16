@@ -1,29 +1,33 @@
+import { ReactElement, ReactNode } from "react"
 import { ThemeProvider } from "next-themes"
-import { SessionProvider, signIn } from "next-auth/react"
+import { SessionProvider } from "next-auth/react"
 import type { Session } from "next-auth"
-import type { AppType } from "next/app"
+import type { AppProps } from "next/app"
 import { trpc } from "../utils/trpc"
-import DashboardLayout from "../layouts/DashboardLayout"
-import { lightTheme, darkTheme } from "../styles/vars.css"
-import Button from "../ui/Button"
-import Sidebar from "../components/Sidebar"
+import { NextPage } from "next"
+import "../styles/global.css"
 
-const MyApp: AppType<{ session: Session | null }> = ({
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+  pageProps: {
+    session: Session | null
+  }
+}
+
+const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
+}: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
     <SessionProvider session={session}>
-      <ThemeProvider
-        attribute="class"
-        value={{
-          light: lightTheme,
-          dark: darkTheme,
-        }}
-      >
-        <DashboardLayout sidebar={<Sidebar />}>
-          <Component {...pageProps} />
-        </DashboardLayout>
+      <ThemeProvider attribute="class">
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </SessionProvider>
   )

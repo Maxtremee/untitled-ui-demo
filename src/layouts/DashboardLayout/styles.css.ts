@@ -1,10 +1,5 @@
-import { globalStyle, style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css"
 import { sprinkles } from "../../styles/sprinkles.css"
-import { vars } from "../../styles/vars.css"
-
-globalStyle("body", {
-  margin: 0,
-})
 
 export const layout = style([
   sprinkles({
@@ -14,7 +9,6 @@ export const layout = style([
     },
   }),
   {
-    // backgroundColor: vars.colors.backgroundSidebar,
     display: "flex",
     height: "100vh",
     width: "100vw",

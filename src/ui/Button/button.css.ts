@@ -10,8 +10,6 @@ export const button = recipe({
       },
     }),
     {
-      margin: 8,
-      width: "100%",
       padding: "10px 18px",
       border: `1px solid`,
       boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)",
