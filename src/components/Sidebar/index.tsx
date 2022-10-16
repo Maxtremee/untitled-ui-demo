@@ -1,6 +1,6 @@
-import { signIn, signOut } from "next-auth/react"
-import Button from "../../ui/Button"
-import { trpc } from "../../utils/trpc"
+import { signOut } from "next-auth/react"
+import Button from "@ui/Button"
+import { trpc } from "@utils/trpc"
 
 export default function Sidebar() {
   const session = trpc.auth.getSession.useQuery()
@@ -16,6 +16,6 @@ export default function Sidebar() {
   if (session.data?.user) {
     return <Button onClick={() => signOut()}>Sign out</Button>
   }
-  
+
   return null
 }

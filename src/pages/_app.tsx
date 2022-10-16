@@ -3,9 +3,9 @@ import { ThemeProvider } from "next-themes"
 import { SessionProvider } from "next-auth/react"
 import type { Session } from "next-auth"
 import type { AppProps } from "next/app"
-import { trpc } from "../utils/trpc"
+import { trpc } from "@utils/trpc"
 import { NextPage } from "next"
-import "../styles/global.css"
+import "@styles/global.css"
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode

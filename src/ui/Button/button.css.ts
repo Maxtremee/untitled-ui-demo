@@ -1,5 +1,5 @@
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { colors, sprinkles } from "../../styles/sprinkles.css"
+import { sprinkles } from "@styles/sprinkles.css"
 
 export const button = recipe({
   base: [
