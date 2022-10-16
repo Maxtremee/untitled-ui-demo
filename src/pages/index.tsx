@@ -2,7 +2,8 @@ import type { NextPage } from "next"
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import Button from "@ui/Button"
-import { index } from "./index.css"
+import Text from "@ui/Text"
+import { index } from "@styles/index.css"
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={index}>
-      <h1>Untitled UI</h1>
+      <Text size="display-2xl">Untitled UI</Text>
       <Button
         background="primary"
         onClick={() =>
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
           })
         }
       >
-        Sign In
+        <Text>Sign In</Text>
       </Button>
     </div>
   )

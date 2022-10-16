@@ -15,7 +15,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
-    display: ["none", "flex", "block", "inline"],
+    display: ["none", "flex", "block", "inline", "grid"],
     flexDirection: ["row", "column"],
     justifyContent: [
       "stretch",
@@ -30,6 +30,12 @@ const responsiveProperties = defineProperties({
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
+    gap: {
+      none: 0,
+      small: 4,
+      medium: 8,
+      large: 16,
+    },
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -109,6 +115,22 @@ export const colors = {
   "secondary-800": "#93165f",
   "secondary-900": "#851651",
 }
+
+export type ColorVariants = {
+  [key: string]: {
+    color: string
+  }
+}
+
+export const colorVariants = Object.keys(colors).reduce(
+  (prev, key) => ({
+    ...prev,
+    [key]: {
+      color: colors[key as keyof typeof colors],
+    },
+  }),
+  {} as ColorVariants
+)
 
 const colorProperties = defineProperties({
   conditions: {

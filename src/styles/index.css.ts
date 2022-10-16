@@ -11,5 +11,6 @@ export const index = style([
     minWidth: "100vw",
     minHeight: "100vh",
     flexDirection: "column",
+    gap: 20
   },
 ])

@@ -7,7 +7,10 @@ import { trpc } from "@utils/trpc"
 import { NextPage } from "next"
 import "@styles/global.css"
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
+  P,
+  IP
+> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 
@@ -15,7 +18,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
   pageProps: {
     session: Session | null
-  }
+  } & Record<string, unknown>
 }
 
 const MyApp = ({

@@ -1,9 +1,10 @@
+import { ReactElement } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
-import { ReactElement } from "react"
-import DashboardLayout from "../../layouts/DashboardLayout"
-import { trpc } from "../../utils/trpc"
+import DashboardLayout from "@layouts/DashboardLayout"
+import { trpc } from "@utils/trpc"
 import { NextPageWithLayout } from "../_app"
+import Text from "@ui/Text"
 
 const Dashboard: NextPageWithLayout = () => {
   const router = useRouter()
@@ -16,7 +17,7 @@ const Dashboard: NextPageWithLayout = () => {
 
   return (
     <>
-      <h1 style={{ marginTop: 0 }}>Customers</h1>
+      <Text size="display-md">Customers</Text>
       <p style={{ wordBreak: "break-all" }}>{JSON.stringify(user)}</p>
       <p style={{ wordBreak: "break-all" }}>{JSON.stringify(session)}</p>
     </>
