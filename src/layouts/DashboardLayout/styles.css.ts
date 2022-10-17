@@ -20,6 +20,10 @@ export const sidebarContainer = createContainer()
 
 export const sidebar = style([
   sprinkles({
+    display: "flex",
+    alignItems: "stretch",
+    flexDirection: "column",
+    gap: "large",
     color: {
       darkMode: "white",
       lightMode: "black",
@@ -28,10 +32,6 @@ export const sidebar = style([
   {
     containerName: sidebarContainer,
     containerType: "size",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    gap: "24px",
     transition: "width 400ms ease",
     width: 50,
     padding: 20,

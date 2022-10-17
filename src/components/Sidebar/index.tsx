@@ -1,7 +1,11 @@
 import Link from "../Link"
 import { signOut } from "next-auth/react"
-import { GearIcon, HomeIcon, MaskOnIcon, PinRightIcon } from "@radix-ui/react-icons"
-import Button from "@ui/Button"
+import {
+  GearIcon,
+  HomeIcon,
+  MaskOnIcon,
+  PinRightIcon,
+} from "@radix-ui/react-icons"
 import Text from "@ui/Text"
 import { trpc } from "@utils/trpc"
 import {
@@ -9,12 +13,12 @@ import {
   avatar,
   expanded,
   icon,
-  logoutIcon,
   sidebarLink,
   user,
   userLink,
 } from "./styles.css"
 import Divider from "@ui/Divider"
+import Image from "next/image"
 
 export default function Sidebar() {
   const session = trpc.auth.getSession.useQuery()
@@ -59,11 +63,15 @@ export default function Sidebar() {
           }
           className={userLink}
         >
-          <img
-            src={session.data?.user?.image || ""}
-            alt="profile picture"
-            className={avatar}
-          />
+          <div className={avatar}>
+            <Image
+              src={session.data?.user?.image || ""}
+              alt="profile picture"
+              width="100%"
+              height="100%"
+              className={avatar}
+            />
+          </div>
           <div className={user}>
             <div>
               <Text size="small" weight="semibold">

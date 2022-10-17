@@ -5,7 +5,6 @@ import { style } from "@vanilla-extract/css"
 
 const sidebarBase = style({
   padding: "8px 12px",
-  width: "90%",
   overflow: "hidden",
 })
 
