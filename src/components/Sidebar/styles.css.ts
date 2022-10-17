@@ -11,9 +11,9 @@ const sidebarBase = style({
 export const sidebarLink = style([
   buttonBase,
   sidebarBase,
+  sprinkles({ gap: "medium" }),
   {
     background: "transparent",
-    gap: "15px",
     ":hover": {
       backgroundColor: colors["gray-700"],
     },
@@ -49,6 +49,12 @@ export const userLink = style([
   sidebarLink,
   {
     padding: "8px 12px 8px 0",
+    transition: "padding 200ms ease",
+    "@container": {
+      [`${sidebarContainer} (min-width: 100px)`]: {
+        padding: "8px 12px",
+      },
+    },
   },
 ])
 
@@ -56,7 +62,6 @@ export const user = style([
   sprinkles({
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
     gap: "large",
   }),
   expanded,
